@@ -1,0 +1,49 @@
+{% load static %}
+
+<section id="sobre" class="py-20 bg-base-200">
+  <div class="container mx-auto px-4">
+    <!-- MOBILE (padrão): flex-col-reverse = texto aparece antes da foto -->
+    <!-- DESKTOP (lg): lg:flex-row = imagem à esquerda, texto à direita -->
+    <div class="flex flex-col-reverse lg:flex-row items-center gap-12">
+
+  <!-- Imagem (no mobile fica abaixo por causa do flex-col-reverse) -->
+      <div class="lg:w-1/2">
+        <div class="avatar">
+          <div class="w-full rounded-lg shadow-2xl">
+            <img src="{% static 'img/architect.jpg' %}" alt="Victor - Arquiteto" class="object-cover">
+          </div>
+        </div>
+      </div>
+
+    <!-- Texto (no mobile fica acima por causa do flex-col-reverse) -->
+    <div class="lg:w-1/2 space-y-6">
+        <h2 class="text-4xl font-bold tracking-tight">Sobre nós</h2>
+        <div class="before:bg-[#171717] after:bg-[#171717] divider divider-primary w-20"></div>
+
+        <p class="text-lg leading-relaxed">
+          Sou Victor, arquiteto com paixão por criar espaços que equilibram funcionalidade,
+          estética e sustentabilidade. Com anos de experiência em projetos residenciais e
+          comerciais, busco sempre soluções inovadoras e personalizadas.
+        </p>
+
+        <p class="text-lg leading-relaxed">
+          Minha abordagem minimalista valoriza cada detalhe, transformando ambientes em
+          experiências únicas que refletem a identidade de cada cliente.
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+          <div class="badge badge-lg badge-outline">Residencial</div>
+          <div class="badge badge-lg badge-outline">Interiores</div>
+          <div class="badge badge-lg badge-outline">Sustentabilidade</div>
+          <div class="badge badge-lg badge-outline">Minimalismo</div>
+        </div>
+
+        <div class="flex gap-4">
+          <a href="#projetos" class=" bg-[#171717] btn btn-primary">Ver Projetos</a>
+          <a href="#contato" class="btn btn-outline">Faça um Orçamento</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -7,23 +7,24 @@
       </div>
       <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow bg-base-100 rounded-box w-52 text-base-content">
         <li><a href="{% url 'home' %}">Início</a></li>
+        <li><a href="#sobre">Sobre nós</a></li>
         <li><a>Projetos</a></li>
-        <li><a>Sobre</a></li>
+        <li><a>Contato</a></li>
       </ul>
     </div>
   	<a href="{% url 'home' %}" class="hidden lg:flex text-white text-xl tracking-widest font-semibold uppercase transition hover:text-white/70">
-      	<span class="mr-2">Victor</span><span class="font-semibold">ARQ</span>
+      	<span class="ml-5 mr-2">Victor</span><span class="font-semibold">ARQ</span>
 	</a>
   </div>
 
   <div class="navbar-center">
     <a href="{% url 'home' %}" class="lg:hidden text-white text-xl tracking-widest font-semibold uppercase transition hover:text-white/70">
-        <span class="mr-2">Victor</span><span class="font-semibold">ARQ</span>
+        <span class="ml-5 mr-2">Victor</span><span class="font-semibold">ARQ</span>
     </a>
     <ul class="menu menu-horizontal px-1 gap-2 font-medium text-white text-base hidden lg:flex">
       <li><a href="{% url 'home' %}">Início</a></li>
+      <li><a href="#sobre">Sobre nós</a></li>
       <li><a>Projetos</a></li>
-      <li><a>Sobre mim</a></li>
 	  <li><a>Contato</a></li>
 </ul>
   </div>
@@ -38,10 +39,10 @@
     const navbar = document.getElementById('main-navbar');
     if (window.scrollY > 20) {
       navbar.classList.remove('bg-transparent', 'border-transparent');
-      navbar.classList.add('bg-white/20', 'backdrop-blur-md', 'border-white/10');
+      navbar.classList.add('bg-[#171717]', 'border-white/10');
     } else {
       navbar.classList.add('bg-transparent', 'border-transparent');
-      navbar.classList.remove('bg-white/20', 'backdrop-blur-md', 'border-white/10');
+      navbar.classList.remove('bg-[#171717]', 'border-white/10');
     }
   });
 </script>

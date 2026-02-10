@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 	'home',
 	'users',
-	'contacts'
+	'projects'
 ]
 
 MIDDLEWARE = [
@@ -121,6 +121,8 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    "/var/www/static/",
 ]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 AUTH_USER_MODEL = 'users.CustomUser'

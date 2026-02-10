@@ -1,0 +1,118 @@
+{% load static %}
+<section id="servicos" class="py-20 bg-base-100">
+  <div class="container mx-auto px-4">
+    <div class="mb-12 max-w-2xl">
+      <h2 class="text-5xl font-bold">Nossos Serviços</h2>
+      <div class="before:bg-[#171717] after:bg-[#171717] mt-3 w-16 divider divider-primary"></div>
+      <p class="text-base-content/70">Soluções completas para transformar seu espaço.</p>
+    </div>
+
+    <div class="carousel w-full">
+      <div id="servico-1" class="carousel-item relative w-full">
+        <div class="card bg-base-200 shadow w-full lg:card-side">
+          <figure class="lg:w-1/2 overflow-hidden">
+            <div class="h-40 w-full sm:h-48 lg:h-80">
+              <img src="static/img/residencial.jpg" alt="Projeto residencial" class="h-full w-full object-cover" />
+            </div>
+          </figure>
+          <div class="card-body lg:w-1/2">
+            <h3 class="card-title">Projetos Residenciais</h3>
+            <p>Conforto, estética e funcionalidade sob medida.</p>
+            <div class="card-actions">
+              <a class="btn btn-primary btn-sm bg-[#171717]" href="#contato">Faça um orçamento</a>
+            </div>
+          </div>
+        </div>
+        <div class="absolute left-3 right-3 top-1/2 flex -translate-y-1/2 justify-between">
+          <button type="button" class="btn btn-circle btn-ghost bg-base-200/80 carousel-nav" data-target="servico-4">❮</button>
+          <button type="button" class="btn btn-circle btn-ghost bg-base-200/80 carousel-nav" data-target="servico-2">❯</button>
+        </div>
+      </div>
+
+      <div id="servico-2" class="carousel-item relative w-full">
+        <div class="card bg-base-200 shadow w-full lg:card-side">
+          <figure class="lg:w-1/2 overflow-hidden">
+            <div class="h-40 w-full sm:h-48 lg:h-80">
+              <img src="https://picsum.photos/1200/600?random=2" alt="Interiores" class="h-full w-full object-cover" />
+            </div>
+          </figure>
+          <div class="card-body lg:w-1/2">
+            <h3 class="card-title">Design de Interiores</h3>
+            <p>Ambientes com identidade e harmonia.</p>
+            <div class="card-actions">
+              <a class="btn btn-primary btn-sm bg-[#171717]" href="#contato">Faça um orçamento</a>
+            </div>
+          </div>
+        </div>
+        <div class="absolute left-3 right-3 top-1/2 flex -translate-y-1/2 justify-between">
+          <button type="button" class="btn btn-circle btn-ghost bg-base-200/80 carousel-nav" data-target="servico-1">❮</button>
+          <button type="button" class="btn btn-circle btn-ghost bg-base-200/80 carousel-nav" data-target="servico-3">❯</button>
+        </div>
+      </div>
+
+      <div id="servico-3" class="carousel-item relative w-full">
+        <div class="card bg-base-200 shadow w-full lg:card-side">
+          <figure class="lg:w-1/2 overflow-hidden">
+            <div class="h-40 w-full sm:h-48 lg:h-80">
+              <img src="https://picsum.photos/1200/600?random=3" alt="Comercial" class="h-full w-full object-cover" />
+            </div>
+          </figure>
+          <div class="card-body lg:w-1/2">
+            <h3 class="card-title">Projetos Comerciais</h3>
+            <p>Espaços eficientes e com personalidade.</p>
+            <div class="card-actions">
+              <a class="btn btn-primary btn-sm bg-[#171717]" href="#contato">Faça um orçamento</a>
+            </div>
+          </div>
+        </div>
+        <div class="absolute left-3 right-3 top-1/2 flex -translate-y-1/2 justify-between">
+          <button type="button" class="btn btn-circle btn-ghost bg-base-200/80 carousel-nav" data-target="servico-2">❮</button>
+          <button type="button" class="btn btn-circle btn-ghost bg-base-200/80 carousel-nav" data-target="servico-4">❯</button>
+        </div>
+      </div>
+
+      <div id="servico-4" class="carousel-item relative w-full">
+        <div class="card bg-base-200 shadow w-full lg:card-side">
+          <figure class="lg:w-1/2 overflow-hidden">
+            <div class="h-40 w-full sm:h-48 lg:h-80">
+              <img src="https://picsum.photos/1200/600?random=4" alt="Consultoria" class="h-full w-full object-cover" />
+            </div>
+          </figure>
+          <div class="card-body lg:w-1/2">
+            <h3 class="card-title">Consultoria</h3>
+            <p>Direcionamento técnico para decisões seguras.</p>
+            <div class="card-actions">
+              <a class="btn btn-primary btn-sm bg-[#171717]" href="#contato">Faça um orçamento</a>
+            </div>
+          </div>
+        </div>
+        <div class="absolute left-3 right-3 top-1/2 flex -translate-y-1/2 justify-between">
+          <button type="button" class="btn btn-circle btn-ghost bg-base-200/80 carousel-nav" data-target="servico-3">❮</button>
+          <button type="button" class="btn btn-circle btn-ghost bg-base-200/80 carousel-nav" data-target="servico-1">❯</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const section = document.getElementById("servicos");
+    if (!section) return;
+
+    section.querySelectorAll(".carousel-nav").forEach((button) => {
+      button.addEventListener("click", () => {
+        const targetId = button.getAttribute("data-target");
+        if (!targetId) return;
+        const target = section.querySelector(`#${targetId}`);
+        if (!target) return;
+        target.scrollIntoView({
+          behavior: "smooth",
+          inline: "start",
+          block: "nearest",
+        });
+      });
+    });
+  });
+</script>
