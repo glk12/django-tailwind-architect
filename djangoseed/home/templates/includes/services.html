@@ -1,117 +1,99 @@
 {% load static %}
-<section id="servicos" class="py-20 bg-base-100">
+<section id="servicos" class="py-24 bg-base-100">
   <div class="container mx-auto px-4">
-    <div class="mb-12 max-w-2xl">
-      <h2 class="text-5xl font-bold">Nossos Serviços</h2>
-      <div class="before:bg-[#171717] after:bg-[#171717] mt-3 w-16 divider divider-primary"></div>
-      <p class="text-base-content/70">Soluções completas para transformar seu espaço.</p>
+    <div class="mb-12 max-w-4xl">
+      <h2 class="text-4xl font-bold tracking-tight">Nossos Serviços</h2>
+      <div class="before:bg-[#171717] after:bg-[#171717] mt-3 w-20 divider divider-primary"></div>
+      <p class="text-base-content/70 mt-3 text-lg">Soluções completas com foco visual nas experiências que entregamos.</p>
     </div>
 
-    <div class="carousel w-full">
-      <div id="servico-1" class="carousel-item relative w-full">
-        <div class="card bg-base-200 shadow w-full lg:card-side">
-          <figure class="lg:w-1/2 overflow-hidden">
-            <div class="h-40 w-full sm:h-48 lg:h-80">
-              <img src="static/img/residencial.jpg" alt="Projeto residencial" class="h-full w-full object-cover" />
+    <div class="carousel w-full max-w-6xl mx-auto rounded-3xl bg-base-200 shadow-2xl overflow-hidden scroll-smooth">
+      <div id="slide1" class="carousel-item relative w-full">
+        <figure class="relative h-[70vh] w-full">
+          <img src="{% static 'img/residencial.jpg' %}" alt="Projeto residencial" class="h-full w-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 px-10 pb-12 text-white space-y-4">
+            <div>
+              <h3 class="mt-4 text-4xl font-bold">Projetos Residenciais</h3>
+              <p class="mt-2 text-lg text-white/80">Conforto, estética e funcionalidade sob medida para cada família.</p>
             </div>
-          </figure>
-          <div class="card-body lg:w-1/2">
-            <h3 class="card-title">Projetos Residenciais</h3>
-            <p>Conforto, estética e funcionalidade sob medida.</p>
-            <div class="card-actions">
-              <a class="btn btn-primary btn-sm bg-[#171717]" href="#contato">Faça um orçamento</a>
-            </div>
+            <a class="btn btn-lg bg-white text-neutral font-semibold border-none" href="#contato">Faça um orçamento</a>
           </div>
-        </div>
-        <div class="absolute left-3 right-3 top-1/2 flex -translate-y-1/2 justify-between">
-          <button type="button" class="btn btn-circle btn-ghost bg-base-200/80 carousel-nav" data-target="servico-4">❮</button>
-          <button type="button" class="btn btn-circle btn-ghost bg-base-200/80 carousel-nav" data-target="servico-2">❯</button>
+        </figure>
+        <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 justify-between">
+          <button type="button" class="btn btn-circle" data-slide-target="slide4">❮</button>
+          <button type="button" class="btn btn-circle" data-slide-target="slide2">❯</button>
         </div>
       </div>
 
-      <div id="servico-2" class="carousel-item relative w-full">
-        <div class="card bg-base-200 shadow w-full lg:card-side">
-          <figure class="lg:w-1/2 overflow-hidden">
-            <div class="h-40 w-full sm:h-48 lg:h-80">
-              <img src="https://picsum.photos/1200/600?random=2" alt="Interiores" class="h-full w-full object-cover" />
+      <div id="slide2" class="carousel-item relative w-full">
+        <figure class="relative h-[70vh] w-full">
+          <img src="https://picsum.photos/1600/900?random=12" alt="Design de Interiores" class="h-full w-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 px-10 pb-12 text-white space-y-4">
+            <div>
+              <h3 class="mt-4 text-4xl font-bold">Design de Interiores</h3>
+              <p class="mt-2 text-lg text-white/80">Ambientes com identidade, harmonia e usabilidade elevada.</p>
             </div>
-          </figure>
-          <div class="card-body lg:w-1/2">
-            <h3 class="card-title">Design de Interiores</h3>
-            <p>Ambientes com identidade e harmonia.</p>
-            <div class="card-actions">
-              <a class="btn btn-primary btn-sm bg-[#171717]" href="#contato">Faça um orçamento</a>
-            </div>
+            <a class="btn btn-lg bg-white text-neutral font-semibold border-none" href="#contato">Faça um orçamento</a>
           </div>
-        </div>
-        <div class="absolute left-3 right-3 top-1/2 flex -translate-y-1/2 justify-between">
-          <button type="button" class="btn btn-circle btn-ghost bg-base-200/80 carousel-nav" data-target="servico-1">❮</button>
-          <button type="button" class="btn btn-circle btn-ghost bg-base-200/80 carousel-nav" data-target="servico-3">❯</button>
+        </figure>
+        <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 justify-between">
+          <button type="button" class="btn btn-circle" data-slide-target="slide1">❮</button>
+          <button type="button" class="btn btn-circle" data-slide-target="slide3">❯</button>
         </div>
       </div>
 
-      <div id="servico-3" class="carousel-item relative w-full">
-        <div class="card bg-base-200 shadow w-full lg:card-side">
-          <figure class="lg:w-1/2 overflow-hidden">
-            <div class="h-40 w-full sm:h-48 lg:h-80">
-              <img src="https://picsum.photos/1200/600?random=3" alt="Comercial" class="h-full w-full object-cover" />
+      <div id="slide3" class="carousel-item relative w-full">
+        <figure class="relative h-[70vh] w-full">
+          <img src="https://picsum.photos/1600/900?random=18" alt="Projetos Comerciais" class="h-full w-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 px-10 pb-12 text-white space-y-4">
+            <div>
+              <h3 class="mt-4 text-4xl font-bold">Projetos Comerciais</h3>
+              <p class="mt-2 text-lg text-white/80">Espaços eficientes e marcantes que fortalecem a presença da marca.</p>
             </div>
-          </figure>
-          <div class="card-body lg:w-1/2">
-            <h3 class="card-title">Projetos Comerciais</h3>
-            <p>Espaços eficientes e com personalidade.</p>
-            <div class="card-actions">
-              <a class="btn btn-primary btn-sm bg-[#171717]" href="#contato">Faça um orçamento</a>
-            </div>
+            <a class="btn btn-lg bg-white text-neutral font-semibold border-none" href="#contato">Faça um orçamento</a>
           </div>
-        </div>
-        <div class="absolute left-3 right-3 top-1/2 flex -translate-y-1/2 justify-between">
-          <button type="button" class="btn btn-circle btn-ghost bg-base-200/80 carousel-nav" data-target="servico-2">❮</button>
-          <button type="button" class="btn btn-circle btn-ghost bg-base-200/80 carousel-nav" data-target="servico-4">❯</button>
+        </figure>
+        <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 justify-between">
+          <button type="button" class="btn btn-circle" data-slide-target="slide2">❮</button>
+          <button type="button" class="btn btn-circle" data-slide-target="slide4">❯</button>
         </div>
       </div>
 
-      <div id="servico-4" class="carousel-item relative w-full">
-        <div class="card bg-base-200 shadow w-full lg:card-side">
-          <figure class="lg:w-1/2 overflow-hidden">
-            <div class="h-40 w-full sm:h-48 lg:h-80">
-              <img src="https://picsum.photos/1200/600?random=4" alt="Consultoria" class="h-full w-full object-cover" />
+      <div id="slide4" class="carousel-item relative w-full">
+        <figure class="relative h-[70vh] w-full">
+          <img src="https://picsum.photos/1600/900?random=24" alt="Consultoria" class="h-full w-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 px-10 pb-12 text-white space-y-4">
+            <div>
+              <h3 class="mt-4 text-4xl font-bold">Consultoria</h3>
+              <p class="mt-2 text-lg text-white/80">Direcionamento técnico para decisões seguras e estratégicas.</p>
             </div>
-          </figure>
-          <div class="card-body lg:w-1/2">
-            <h3 class="card-title">Consultoria</h3>
-            <p>Direcionamento técnico para decisões seguras.</p>
-            <div class="card-actions">
-              <a class="btn btn-primary btn-sm bg-[#171717]" href="#contato">Faça um orçamento</a>
-            </div>
+            <a class="btn btn-lg bg-white text-neutral font-semibold border-none" href="#contato">Faça um orçamento</a>
           </div>
-        </div>
-        <div class="absolute left-3 right-3 top-1/2 flex -translate-y-1/2 justify-between">
-          <button type="button" class="btn btn-circle btn-ghost bg-base-200/80 carousel-nav" data-target="servico-3">❮</button>
-          <button type="button" class="btn btn-circle btn-ghost bg-base-200/80 carousel-nav" data-target="servico-1">❯</button>
+        </figure>
+        <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 justify-between">
+          <button type="button" class="btn btn-circle" data-slide-target="slide3">❮</button>
+          <button type="button" class="btn btn-circle" data-slide-target="slide1">❯</button>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const section = document.getElementById("servicos");
-    if (!section) return;
-
-    section.querySelectorAll(".carousel-nav").forEach((button) => {
-      button.addEventListener("click", () => {
-        const targetId = button.getAttribute("data-target");
-        if (!targetId) return;
-        const target = section.querySelector(`#${targetId}`);
-        if (!target) return;
-        target.scrollIntoView({
-          behavior: "smooth",
-          inline: "start",
-          block: "nearest",
-        });
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('[data-slide-target]');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetId = btn.dataset.slideTarget;
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
       });
     });
   });
