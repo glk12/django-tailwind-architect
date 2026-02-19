@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 
-{% block  content%}
+{% block content %}
 	{% include "includes/hero.html" %}
 	{% include "includes/about.html" %}
 	{% include "includes/services.html" %}
-{% endblock  %}
+	{% load project_tags %}
+	{% render_projects_list %}
+{% endblock %}
 
