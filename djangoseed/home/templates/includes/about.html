@@ -1,12 +1,7 @@
 {% load static %}
-
-<section id="sobre" class="py-20 bg-base-200">
-  <div class="container mx-auto px-4">
-    <!-- MOBILE (padrão): flex-col-reverse = texto aparece antes da foto -->
-    <!-- DESKTOP (lg): lg:flex-row = imagem à esquerda, texto à direita -->
+<section id="sobre" class="py-20 bg-base-200 fade-in-section">
+  <div class="max-w-6xl mx-auto px-4">
     <div class="flex flex-col-reverse lg:flex-row items-center gap-12">
-
-  <!-- Imagem (no mobile fica abaixo por causa do flex-col-reverse) -->
       <div class="lg:w-1/2">
         <div class="avatar">
           <div class="w-full rounded-lg shadow-2xl">
@@ -15,8 +10,7 @@
         </div>
       </div>
 
-    <!-- Texto (no mobile fica acima por causa do flex-col-reverse) -->
-    <div class="lg:w-1/2 space-y-6">
+      <div class="lg:w-1/2 space-y-6">
         <h2 class="text-4xl font-bold tracking-tight">Sobre nós</h2>
         <div class="before:bg-[#171717] after:bg-[#171717] divider divider-primary w-20"></div>
 
@@ -37,8 +31,13 @@
           <div class="badge badge-lg badge-outline">Sustentabilidade</div>
           <div class="badge badge-lg badge-outline">Minimalismo</div>
         </div>
+
+        <div class="flex gap-4">
+          <a href="#projects" class="bg-[#171717] btn btn-primary">Ver Projetos</a>
+          <a href="#contato" class="btn btn-outline">Faça um Orçamento</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
+<div class="relative h-10 bg-gradient-to-b from-base-100 to-base-200"></div>
