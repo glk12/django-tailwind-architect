@@ -1,5 +1,5 @@
-<div id="main-navbar" class="navbar fixed top-0 z-50 transition-all duration-300 bg-transparent border-b border-transparent">
-
+{% load static %}
+<div id="main-navbar" class="navbar fixed top-0 z-50 h-16 overflow-visible transition-all duration-300 bg-transparent border-b border-transparent">
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden text-white">
@@ -13,26 +13,22 @@
         <li><a href="#contato">Contato</a></li>
       </ul>
     </div>
-  	<a href="{% url 'home' %}" class="hidden lg:flex text-white text-xl tracking-widest font-semibold uppercase transition hover:text-white/70">
-      	<span class="ml-5 mr-2">Victor</span><span class="font-semibold">ARQ</span>
-	</a>
+    <a href="{% url 'home' %}" class="relative -mb-8 ml-50">
+      <img src="{% static 'img/icon.svg' %}" alt="Logo" class="h-32 w-auto drop-shadow-lg">
+    </a>
   </div>
 
   <div class="navbar-center">
-    <a href="{% url 'home' %}" class="lg:hidden text-white text-xl tracking-widest font-semibold uppercase transition hover:text-white/70">
-        <span class="ml-5 mr-2">Victor</span><span class="font-semibold">ARQ</span>
-    </a>
     <ul class="menu menu-horizontal px-1 gap-2 font-medium text-white text-base hidden lg:flex">
-      <li><a href="{% url 'home' %}">Início</a></li>
-      <li><a href="#sobre">Sobre nós</a></li>
-      <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#projects">Projetos</a></li>
-      <li><a href="#contato">Contato</a></li>
+      <li><a href="{% url 'home' %}" class="hover:bg-transparent hover:text-[#DE4A24] transition-colors duration-300">Início</a></li>
+      <li><a href="#sobre" class="hover:bg-transparent hover:text-[#DE4A24] transition-colors duration-300">Sobre nós</a></li>
+      <li><a href="#servicos" class="hover:bg-transparent hover:text-[#DE4A24] transition-colors duration-300">Serviços</a></li>
+      <li><a href="#projects" class="hover:bg-transparent hover:text-[#DE4A24] transition-colors duration-300">Projetos</a></li>
+      <li><a href="#contato" class="hover:bg-transparent hover:text-[#DE4A24] transition-colors duration-300">Contato</a></li>
     </ul>
   </div>
 
   <div class="navbar-end gap-2">
-
   </div>
 </div>
 
@@ -41,10 +37,10 @@
     const navbar = document.getElementById('main-navbar');
     if (window.scrollY > 20) {
       navbar.classList.remove('bg-transparent', 'border-transparent');
-      navbar.classList.add('bg-[#171717]', 'border-white/10');
+      navbar.classList.add('bg-zinc-900', 'border-white/10');
     } else {
       navbar.classList.add('bg-transparent', 'border-transparent');
-      navbar.classList.remove('bg-[#171717]', 'border-white/10');
+      navbar.classList.remove('bg-zinc-900', 'border-white/10');
     }
   });
 </script>
