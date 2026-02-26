@@ -14,7 +14,7 @@ __pycache__/
 venv/
 ENV/
 env/
-
+.env/
 # IDEs
 .vscode/
 .idea/
