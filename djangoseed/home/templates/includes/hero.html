@@ -1,11 +1,14 @@
-{% load static %}
 {% block content %}
-<div class="hero min-h-screen" style="background-image: url('{% static 'img/img1.jpg' %}');">
+{% if hero and hero.image %}
+<div class="hero min-h-screen relative" style="background-image: url('{{hero.image.url}}');">
+{% else %}
+ <div class="hero min-h-screen bg-base-200">
+{% endif %}
   <div class="hero-overlay bg-opacity-60"></div>
   <div class="hero-content text-center text-neutral-content">
     <div class="max-w-md">
-      <h1 class="mb-5 text-5xl font-light tracking-tighter uppercase">BÁS ARQUITETURA</h1>
-      <p class="mb-5 font-light">Projetos residenciais e comerciais com foco em sustentabilidade e estética minimalista.</p>
+      <h1 class="mb-5 text-5xl font-light tracking-tighter uppercase">{{hero.title}}</h1>
+      <p class="mb-5 font-light">{{hero.description}}</p>
     </div>
   </div>
 </div>

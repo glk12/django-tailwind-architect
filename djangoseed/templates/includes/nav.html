@@ -1,20 +1,7 @@
-{% load static %}
 <div id="main-navbar" class="navbar fixed top-0 z-50 h-16 overflow-visible transition-all duration-300 bg-transparent border-b border-transparent">
   <div class="navbar-start">
-    <div class="dropdown">
-      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden text-white">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-      </div>
-      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow bg-base-100 rounded-box w-52 text-base-content">
-        <li><a href="{% url 'home' %}">Início</a></li>
-        <li><a href="#sobre">Sobre nós</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#projects">Projetos</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </div>
-    <a href="{% url 'home' %}" class="relative -mb-8 ml-50">
-      <img src="{% static 'img/icon.svg' %}" alt="Logo" class="h-32 w-auto drop-shadow-lg">
+    <a href="{% url 'home' %}" class="flex items-center h-full pl-1 pt-8">
+  <img src="{{logo.image.url}}" alt="{{logo.title}}" class="logo-img h-24 lg:h-36 w-auto drop-shadow-lg transition-all duration-300 lg:mt-14">
     </a>
   </div>
 
@@ -29,10 +16,23 @@
   </div>
 
   <div class="navbar-end gap-2">
+    <div class="dropdown dropdown-end lg:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost text-white ">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+      </div>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 right-0 left-auto z-20 p-2 shadow-lg bg-zinc-900 border border-white/10 rounded-box w-52 text-white">
+        <li><a href="{% url 'home' %}" class="hover:bg-[#DE4A24] hover:text-white transition-colors duration-200">Início</a></li>
+        <li><a href="#sobre" class="hover:bg-[#DE4A24] hover:text-white transition-colors duration-200">Sobre nós</a></li>
+        <li><a href="#servicos" class="hover:bg-[#DE4A24] hover:text-white transition-colors duration-200">Serviços</a></li>
+        <li><a href="#projects" class="hover:bg-[#DE4A24] hover:text-white transition-colors duration-200">Projetos</a></li>
+        <li><a href="#contato" class="hover:bg-[#DE4A24] hover:text-white transition-colors duration-200">Contato</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 
 <script>
+  // Navbar background on scroll
   window.addEventListener('scroll', function() {
     const navbar = document.getElementById('main-navbar');
     if (window.scrollY > 20) {
@@ -43,4 +43,40 @@
       navbar.classList.remove('bg-zinc-900', 'border-white/10');
     }
   });
+
+  // Esconde navbar no mobile ao descer e mostra ao subir
+  let lastScrollY = window.scrollY;
+  window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('main-navbar');
+    const isMobile = window.innerWidth < 1024;
+    if (!isMobile) {
+      navbar.classList.remove('translate-y-[-100%]','nav-hidden');
+      navbar.classList.add('translate-y-0');
+      return;
+    }
+    if (window.scrollY > lastScrollY && window.scrollY > 40) {
+      // descendo
+      navbar.classList.add('translate-y-[-100%]');
+      navbar.classList.add('nav-hidden');
+      navbar.classList.remove('translate-y-0');
+    } else {
+      // subindo
+      navbar.classList.remove('translate-y-[-100%]');
+      navbar.classList.remove('nav-hidden');
+      navbar.classList.add('translate-y-0');
+    }
+    lastScrollY = window.scrollY;
+  });
 </script>
+
+<style>
+  /* Smoothly fade/move logo when navbar is hidden on mobile */
+  .logo-img{
+    transition: opacity .24s ease, transform .24s ease;
+  }
+  /* when navbar has nav-hidden, hide logo smoothly (no clipping) */
+  .nav-hidden .logo-img{
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+</style>

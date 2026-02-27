@@ -19,3 +19,4 @@ class ProjectAdmin(admin.ModelAdmin):
 class ProjectImageAdmin(admin.ModelAdmin):
 	list_display = ('project', 'caption', 'order')
 	list_filter = ('project',)
+

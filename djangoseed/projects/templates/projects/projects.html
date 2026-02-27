@@ -1,76 +1,73 @@
+
+{% load project_tags %}
 <section id="projects" class="py-24 bg-base-100 fade-in-section">
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="mb-16 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Projetos em Destaque</h2>
-      <div class="w-20 h-1 bg-[#DE4A24] mx-auto mb-4"></div>
-      <p class="text-base-content/70 text-lg max-w-2xl mx-auto">
-        Conheça alguns dos nossos trabalhos mais recentes
-      </p>
-    </div>
-
-    <div class="space-y-24 md:space-y-32 stagger-fade">
-      {% for project in projects %}
-      <div class="flex flex-col odd:lg:flex-row even:lg:flex-row-reverse items-center gap-8 md:gap-12">
-
-        <div class="w-full lg:w-1/2">
-          <div class="relative group">
-            <div class="project-gallery overflow-x-auto flex snap-x snap-mandatory rounded-lg shadow-xl aspect-[4/3] bg-base-100" style="scrollbar-width: none; -ms-overflow-style: none;">
-
-              <div class="min-w-full flex-shrink-0 snap-center flex items-center justify-center">
-                <img
-                  src="{{ project.cover_image.url }}"
-                  alt="{{ project.title }}"
-                  class="max-w-full max-h-full object-contain"
-                  loading="lazy"
-                />
-              </div>
-
-              {% for img in project.images.all %}
-              <div class="min-w-full flex-shrink-0 snap-center flex items-center justify-center">
-                <img
-                  src="{{ img.image.url }}"
-                  alt="{{ project.title }}"
-                  class="max-w-full max-h-full object-contain"
-                  loading="lazy"
-                />
-              </div>
-              {% endfor %}
-            </div>
-
-            {% if project.images.all %}
-            <div class="absolute bottom-4 right-4 bg-black/40 backdrop-blur-sm text-white px-3 py-1 rounded-full text-[10px] uppercase opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-              ← Deslize para ver fotos →
-            </div>
-            {% endif %}
-          </div>
-
-          {% if project.images.all %}
-          <p class="text-xs text-base-content/60 mt-2 text-center">Deslize para ver mais fotos</p>
-          {% endif %}
-        </div>
-
-        <div class="w-full lg:w-1/2 space-y-4">
-          <h3 class="text-2xl md:text-3xl font-bold tracking-tight">{{ project.title }}</h3>
-          <p class="text-base-content/70 text-lg leading-relaxed line-clamp-4">
-            {{ project.description }}
-          </p>
-          <a href="#" class="btn inline-flex gap-2 transition-all duration-300 bg-transparent border-2 border-[#DE4A24] text-[#DE4A24] hover:bg-[#DE4A24] hover:text-white">
-            Ver projeto completo
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-        </div>
-      </div>
-      {% empty %}
-      <div class="text-center py-16 text-base-content/60">
-        <p class="text-lg">Nenhum projeto em destaque no momento.</p>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
+	<div class="max-w-6xl mx-auto px-4">
+		<div class="mb-16 text-center">
+			<h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Projetos em Destaque</h2>
+			<div class="w-20 h-1 bg-[#DE4A24] mx-auto mb-4"></div>
+			<p class="text-base-content/70 text-lg max-w-2xl mx-auto">
+				Conheça alguns dos nossos trabalhos mais recentes
+			</p>
+		</div>
+		<div class="space-y-24 md:space-y-32 stagger-fade">
+			{% for project in projects %}
+						 <div class="flex flex-col odd:lg:flex-row even:lg:flex-row-reverse items-center gap-8 md:gap-12">
+							 <div class="w-full lg:w-[68%] lg:aspect-auto {% if forloop.counter|divisibleby:'2' %}lg:-mr-[10%]{% else %}lg:-ml-[10%]{% endif %}">
+						<div class="relative group">
+															<div class="project-gallery w-full overflow-x-auto flex snap-x snap-mandatory rounded-2xl shadow-2xl h-59 sm:h-67 md:h-76 lg:aspect-video bg-base-200/80" style="scrollbar-width: none; -ms-overflow-style: none;">
+																{% if project.cover_image %}
+																<div class="min-w-full h-full shrink-0 snap-center flex items-center justify-center overflow-hidden">
+																	<img
+																		src="{{ project.cover_image.url|cloudinary_thumb }}"
+																		alt="{{ project.title }}"
+																		class="w-full h-full object-cover"
+																		loading="lazy"
+																	/>
+																</div>
+																{% endif %}
+																{% for img in project.images.all %}
+																	<div class="min-w-full h-full shrink-0 snap-center flex items-center justify-center overflow-hidden">
+																		<img
+																			src="{{ img.image.url|cloudinary_thumb }}"
+																			alt="{{ project.title }}"
+																			class="w-full h-full object-cover"
+																			loading="lazy"
+																		/>
+																	</div>
+																{% endfor %}
+															</div>
+							{% if project.images.all %}
+								<div class="absolute bottom-4 right-4 bg-black/40 backdrop-blur-sm text-white px-3 py-1 rounded-full text-[10px] uppercase opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+									← Deslize para ver fotos →
+								</div>
+							{% endif %}
+						</div>
+						{% if project.images.all %}
+							<p class="text-xs text-base-content/60 mt-2 text-center">Deslize para ver mais fotos</p>
+						{% endif %}
+					</div>
+					 <div class="w-full lg:w-[60%] space-y-4 relative z-20 lg:bg-base-100 lg:p-6 lg:rounded-md {% if forloop.counter|divisibleby:'2' %}lg:-ml-[10%]{% else %}lg:-mr-[10%]{% endif %}">
+						<h3 class="text-2xl md:text-3xl font-bold tracking-tight">{{ project.title }}</h3>
+						<p class="text-base-content/70 text-lg leading-relaxed">
+							{{ project.description }}
+						</p>
+						<a href="#" class="btn inline-flex gap-2 transition-all duration-300 bg-transparent border-2 border-[#DE4A24] text-[#DE4A24] hover:bg-[#DE4A24] hover:text-white">
+							Ver projeto completo
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+							</svg>
+						</a>
+					</div>
+				</div>
+			{% empty %}
+				<div class="text-center py-16 text-base-content/60">
+					<p class="text-lg">Nenhum projeto em destaque no momento.</p>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
 </section>
 
 <style>
-  .project-gallery::-webkit-scrollbar { display: none; }
+	.project-gallery::-webkit-scrollbar { display: none; }
 </style>
