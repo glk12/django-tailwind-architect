@@ -31,7 +31,9 @@ DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 # Allow configuring hosts via env (comma separated)
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS',
                                'localhost,127.0.0.1,web-production-e25fd.up.railway.app').split(',')
-
+CSRF_TRUSTED_ORIGINS = ["https://*.railway.app"]
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
 # Application definition
 
 INSTALLED_APPS = [
