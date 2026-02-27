@@ -12,15 +12,9 @@
 		<div class="space-y-24 md:space-y-32 stagger-fade">
 			{% for project in projects %}
 						 <div class="flex flex-col odd:lg:flex-row even:lg:flex-row-reverse items-center gap-8 md:gap-12">
-						<!-- remove lg:h-[50%] since height is governed by the
-							inner gallery; keep width and aspect ratio only -->
-						<div class="w-full lg:w-[68%] lg:aspect-auto {% if forloop.counter|divisibleby:'2' %}lg:-mr-[10%]{% else %}lg:-ml-[10%]{% endif %}">
+							 <div class="w-full lg:w-[68%] lg:aspect-auto {% if forloop.counter|divisibleby:'2' %}lg:-mr-[10%]{% else %}lg:-ml-[10%]{% endif %}">
 						<div class="relative group">
-												<!-- enlarged the height utilities here so the
-													photo container is noticeably taller on all
-													screen sizes. adjust values as desired or add
-													custom spacing in tailwind.config.js. -->
-															<div class="project-gallery w-full overflow-x-auto flex snap-x snap-mandatory rounded-2xl shadow-2xl h-80 sm:h-96 md:h-120 lg:aspect-video bg-base-200/80" style="scrollbar-width: none; -ms-overflow-style: none;">
+															<div class="project-gallery w-full overflow-x-auto flex snap-x snap-mandatory rounded-2xl shadow-2xl h-59 sm:h-67 md:h-76 lg:aspect-video bg-base-200/80" style="scrollbar-width: none; -ms-overflow-style: none;">
 																{% if project.cover_image %}
 																<div class="min-w-full h-full shrink-0 snap-center flex items-center justify-center overflow-hidden">
 																	<img
