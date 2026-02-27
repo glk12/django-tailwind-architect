@@ -25,7 +25,7 @@ cd django-tailwind-architect
 
 ### 2️⃣ Crie e ative um ambiente virtual Python
 ```bash
-python -m venv venv
+    python3 -m venv venv
 source venv/bin/activate # No Windows: venv\Scripts\activate
 ```
 
@@ -45,13 +45,13 @@ npm install
 
 1. **Migrações do Django**
     ```bash
-    python manage.py makemigrations
-    python manage.py migrate
+    python3 manage.py makemigrations
+    python3 manage.py migrate
     ```
 
 2. **Criação de um superusuário**
     ```bash
-    python manage.py createsuperuser
+    python3 manage.py createsuperuser
     ```
 
 3. **Configure as variáveis ambiente (se necessário)**.
@@ -63,7 +63,7 @@ npm install
 Após a configuração, execute o servidor de desenvolvimento do Django:
 
 ```bash
-python manage.py runserver
+    python3 manage.py runserver
 ```
 
 Abra seu navegador e acesse: `http://localhost:8000`
