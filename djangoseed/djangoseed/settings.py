@@ -29,10 +29,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 # Allow configuring hosts via env (comma separated)
-ALLOWED_HOSTS = [
-	os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(','),
-    "django-tailwind-architect-production.up.railway.app"
-]
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS',
+                               'localhost,127.0.0.1,django-tailwind-architect-production.up.railway.app').split(',')
 
 
 # Application definition
