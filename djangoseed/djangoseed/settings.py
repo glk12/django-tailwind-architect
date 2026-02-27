@@ -28,9 +28,20 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True') == 'False'
 
-# Allow configuring hosts via env (comma separated)
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS',
-                               'localhost,127.0.0.1,web-production-e25fd.up.railway.app').split(',')
+# Allow configuring hosts via env (comma separated).
+# Railway sometimes forwards the request with an internal IPv6
+# address as the Host header; those values vary each deployment, so
+# a strict list will cause `Bad Request (400)` errors. default to a
+# wildcard unless the environment explicitly provides a different
+# list. You can still lock it down by setting the ALLOWED_HOSTS
+# variable to a comma-separated string in Railway's dashboard.
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
+
+# `os.environ.get` returns an empty string when the variable exists
+# but is unset; split on that yields [''], which Django treats as a
+# literal host. interpret that case as "no restrictions" instead.
+if ALLOWED_HOSTS == ['']:
+    ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ["https://*.railway.app"]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
