@@ -30,7 +30,7 @@ DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 # Allow configuring hosts via env (comma separated)
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS',
-                               'localhost,127.0.0.1,django-tailwind-architect-production.up.railway.app').split(',')
+                               'localhost,127.0.0.1,web-production-e25fd.up.railway.app').split(',')
 
 # Application definition
 
