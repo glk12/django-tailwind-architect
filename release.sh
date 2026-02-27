@@ -1,8 +1,5 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/bash
 
-# Use the python3 command directly from the environment
-python3 djangoseed/manage.py migrate --noinput
-python3 djangoseed/manage.py collectstatic --noinput
-
-echo "release: migrate + collectstatic completed"
+/app/.venv/bin/python djangoseed/manage.py migrate --noinput && \
+/app/.venv/bin/python djangoseed/manage.py collectstatic --noinput && \
+/app/.venv/bin/gunicorn djangoseed.wsgi:application --bind 0.0.0.0:$PORT --log-file -
