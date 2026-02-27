@@ -1,1 +1,1 @@
-web: /app/.venv/bin/python djangoseed/manage.py migrate --noinput && /app/.venv/bin/python djangoseed/manage.py collectstatic --noinput && /app/.venv/bin/gunicorn djangoseed.djangoseed.wsgi:application --bind 0.0.0.0:$PORT --log-file -
+web: python djangoseed/manage.py migrate --noinput && python djangoseed/manage.py collectstatic --noinput && gunicorn djangoseed.wsgi:application --bind 0.0.0.0:$PORT --log-file -
