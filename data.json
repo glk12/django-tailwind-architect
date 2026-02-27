@@ -1,0 +1,383 @@
+[
+{
+  "model": "home.logo",
+  "pk": 1,
+  "fields": {
+    "title": "Logo Bas Laranja simples",
+    "image": "media/nav/logo/LOGO_RAIO_DE_SOL1.5x_ns2kjv"
+  }
+},
+{
+  "model": "home.about",
+  "pk": 1,
+  "fields": {
+    "title": "Victor",
+    "description": "A BÁS Arquitetura surgiu para descomplicar o processo de projetar e construir. Entendemos que cada novo projeto é um desafio que exige equilíbrio entre estética e viabilidade técnica. Com foco em soluções inteligentes e personalizadas, atuamos desde a concepção do conceito até o detalhamento final, garantindo que a visão do cliente seja traduzida em espaços autênticos e eficientes. Para nós, arquitetura de qualidade é aquela que melhora o dia a dia e valoriza o ambiente, criando espaços que inspiram e acolhem.Minha abordagem minimalista valoriza cada detalhe, transformando ambientes em experiências únicas que refletem a identidade de cada cliente.",
+    "image": "media/about/architect_yveb6s"
+  }
+},
+{
+  "model": "home.hero",
+  "pk": 1,
+  "fields": {
+    "title": "BÁS ARQUITETURA",
+    "description": "Projetos residências e comerciais com foco em sustentabilidade e estética minimalista.",
+    "image": "media/hero/img1_eg46tt"
+  }
+},
+{
+  "model": "users.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$UYWuungTgXes9Dpv9CtcD6$rBobJFoNbpx8csXs7dIUPQ9s4qagsKBwbUa2YQVj8WY=",
+    "last_login": "2026-02-19T21:34:05.237Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-02-19T21:34:02.968Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$5UIx7IkhNOftH5dNR2Ubw4$X56hGSORIjFeGBNRY0lRDQN5iPcqe7pLeaH/o7Qp650=",
+    "last_login": "2026-02-25T20:44:32.789Z",
+    "is_superuser": true,
+    "username": "admin1",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-02-25T20:44:21.646Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 2,
+  "fields": {
+    "title": "Sala de Estar",
+    "description": "Reforma completa de interiores projetada para um estilo de vida moderno e prático. A paleta de cores neutras serve de base para o mobiliário de design assinado e texturas aconchegantes. A iluminação indireta foi cuidadosamente planejada para criar diferentes cenários e uma atmosfera sofisticada e acolhedora.",
+    "cover_image": "media/projects/cover/img2_kxf2gu",
+    "created_at": "2026-02-19T21:38:23.117Z",
+    "updated_at": "2026-02-26T18:01:18.663Z"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 6,
+  "fields": {
+    "title": "Residência Moderna",
+    "description": "Projeto arquitetônico focado em linhas retas e amplos vãos. O uso estratégico de painéis de vidro e revestimentos naturais, como pedra e madeira, cria uma integração perfeita entre o interior da casa e o paisagismo externo. O destaque fica para o pé-direito duplo que garante iluminação natural durante todo o dia.",
+    "cover_image": "media/projects/cover/img1_s53ahn",
+    "created_at": "2026-02-26T02:47:15.724Z",
+    "updated_at": "2026-02-26T02:47:15.724Z"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 7,
+  "fields": {
+    "title": "Área Gourmet",
+    "description": "Projeto de área gourmet  que explora a continuidade entre o construído e o natural. A arquitetura minimalista utiliza materiais nobres para criar um ambiente que é, ao mesmo tempo, sofisticado e acolhedor. O pé-direito elevado e o uso estratégico de transparências garantem uma iluminação natural abundante, transformando o ato de cozinhar e receber em uma experiência imersiva junto à natureza externa",
+    "cover_image": "media/projects/cover/img3_z6anpv",
+    "created_at": "2026-02-26T18:07:05.763Z",
+    "updated_at": "2026-02-26T18:07:05.763Z"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-02-19T21:37:45.612Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "projects",
+      "project"
+    ],
+    "object_id": "1",
+    "object_repr": "Residência Moderna",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-02-19T21:38:23.118Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "projects",
+      "project"
+    ],
+    "object_id": "2",
+    "object_repr": "Sala de Estar",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-02-19T21:38:47.832Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "projects",
+      "project"
+    ],
+    "object_id": "3",
+    "object_repr": "Área Gourmet",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-02-20T01:35:01.771Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "projects",
+      "project"
+    ],
+    "object_id": "3",
+    "object_repr": "Área Gourmet",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"Imagem do Projeto\", \"object\": \"\\u00c1rea Gourmet - #0\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-02-25T20:54:58.004Z",
+    "user": [
+      "admin1"
+    ],
+    "content_type": [
+      "projects",
+      "project"
+    ],
+    "object_id": "3",
+    "object_repr": "Área Gourmet",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-02-25T20:56:08.334Z",
+    "user": [
+      "admin1"
+    ],
+    "content_type": [
+      "projects",
+      "project"
+    ],
+    "object_id": "4",
+    "object_repr": "Área Gourmet",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-02-26T02:44:21.762Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "projects",
+      "project"
+    ],
+    "object_id": "1",
+    "object_repr": "Residência Moderna",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-02-26T02:46:51.413Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "projects",
+      "project"
+    ],
+    "object_id": "5",
+    "object_repr": "Residência Moderna",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-02-26T02:46:59.341Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "projects",
+      "project"
+    ],
+    "object_id": "5",
+    "object_repr": "Residência Moderna",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-02-26T02:47:15.725Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "projects",
+      "project"
+    ],
+    "object_id": "6",
+    "object_repr": "Residência Moderna",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-02-26T02:47:49.819Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "projects",
+      "project"
+    ],
+    "object_id": "4",
+    "object_repr": "Área Gourmet",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-02-26T18:01:18.664Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "projects",
+      "project"
+    ],
+    "object_id": "2",
+    "object_repr": "Sala de Estar",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Imagem de capa\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-02-26T18:07:05.763Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "projects",
+      "project"
+    ],
+    "object_id": "7",
+    "object_repr": "Área Gourmet",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-02-26T21:18:36.057Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "home",
+      "about"
+    ],
+    "object_id": "1",
+    "object_repr": "Victor",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-02-26T21:44:49.130Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "home",
+      "hero"
+    ],
+    "object_id": "1",
+    "object_repr": "BÁS ARQUITETURA",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-02-27T02:56:14.184Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "home",
+      "logo"
+    ],
+    "object_id": "1",
+    "object_repr": "Logo Bas Laranja simples",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+}
+]

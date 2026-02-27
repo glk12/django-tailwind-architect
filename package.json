@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch:css": "npx @tailwindcss/cli -i ./djangoseed/static/css/src/input.css -o ./djangoseed/static/css/src/output.css --watch"
+    "watch:css": "npx @tailwindcss/cli -i ./djangoseed/static/css/src/input.css -o ./djangoseed/static/css/src/output.css --watch",
+    "build:css": "npx @tailwindcss/cli -i ./djangoseed/static/css/src/input.css -o ./djangoseed/static/css/src/output.css --minify"
   },
   "repository": {
     "type": "git",
