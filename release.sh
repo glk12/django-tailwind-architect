@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Run migrations and collectstatic for Railway (use in Release Command)
+# Use the python3 command directly from the environment
 python3 djangoseed/manage.py migrate --noinput
 python3 djangoseed/manage.py collectstatic --noinput
 
