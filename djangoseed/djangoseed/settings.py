@@ -35,13 +35,18 @@ DEBUG = os.environ.get('DEBUG', 'True') == 'False'
 # wildcard unless the environment explicitly provides a different
 # list. You can still lock it down by setting the ALLOWED_HOSTS
 # variable to a comma-separated string in Railway's dashboard.
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
-
-# `os.environ.get` returns an empty string when the variable exists
-# but is unset; split on that yields [''], which Django treats as a
-# literal host. interpret that case as "no restrictions" instead.
-if ALLOWED_HOSTS == ['']:
+# build the host list cleanly in case the environment variable contains
+# stray spaces or is empty. we also log the final value in debug mode so
+# it's easy to verify what Django is actually checking when the app
+# boots (Railway logs will show the value).
+raw_hosts = os.environ.get('ALLOWED_HOSTS', '*')
+ALLOWED_HOSTS = [h.strip() for h in raw_hosts.split(',') if h.strip()]
+if not ALLOWED_HOSTS:
     ALLOWED_HOSTS = ['*']
+if DEBUG:
+    # this print will appear in the build logs when DEBUG=True (local
+    # dev) but will be ignored in production; keep it for troubleshooting
+    print("ALLOWED_HOSTS=", ALLOWED_HOSTS)
 CSRF_TRUSTED_ORIGINS = ["https://*.railway.app"]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
