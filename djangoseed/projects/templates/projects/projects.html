@@ -16,11 +16,21 @@
 							gallery; keep width and aspect ratio only -->
 						<div class="w-full lg:w-[68%] lg:aspect-auto {% if forloop.counter|divisibleby:'2' %}lg:-mr-[10%]{% else %}lg:-ml-[10%]{% endif %}">
 						<div class="relative group">
-												<!-- enlarged the height utilities here so the photo
-													container is noticeably taller on all screen
-													sizes. adjust values as desired or add custom
-													spacing in tailwind.config.js. -->
-												<div class="project-gallery w-full overflow-x-auto flex snap-x snap-mandatory rounded-2xl shadow-2xl h-80 sm:h-96 md:h-120 lg:aspect-video bg-base-200/80" style="scrollbar-width: none; -ms-overflow-style: none;">
+										    <!-- rather than a hard‑coded height we now use an
+											    explicit aspect ratio and `object-contain` so
+											    each image is shown in full without being
+											    cropped/"zoomed" on narrow viewports. the
+											    overflow-x is still kept so the user can swipe
+											    through multiple pictures. if you prefer fixed
+											    heights again you can restore the h-80 …
+											    utilities or add custom spacing in
+											    tailwind.config.js. -->
+									    <!-- small screens use a 4:3 aspect ratio so the images
+										    aren't cropped; on large viewports we give the
+										    container a minimum height so it doesn't become a
+										    thin ribbon as the width grows. adjust the lg:h-*
+										    value to taste. -->
+									    <div class="project-gallery w-full overflow-x-auto flex snap-x snap-mandatory rounded-2xl shadow-2xl aspect-4/3 lg:h-96 bg-base-200/80">
 																{% if project.cover_image %}
 																<div class="min-w-full h-full shrink-0 snap-center flex items-center justify-center overflow-hidden">
 																	<img
@@ -36,7 +46,7 @@
 																		<img
 																			src="{{ img.image.url|cloudinary_thumb }}"
 																			alt="{{ project.title }}"
-																			class="w-full h-full object-cover"
+																			class="w-full h-full object-contain"
 																			loading="lazy"
 																		/>
 																	</div>

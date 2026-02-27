@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="stylesheet" href="{% static 'css/src/output.css' %}">
     <title>{% block title %}Home{% endblock %}</title>
 
@@ -36,6 +36,13 @@
       }
       .project-gallery::-webkit-scrollbar {
         display: none;
+      }
+      /* make the hero section full‑height even on mobile Safari (safe
+         area + dynamic address bar). if you prefer using a utility
+         class instead, this can be moved into your Tailwind input file. */
+      .hero {
+        height: 100svh;
+        min-height: 100dvh;
       }
     </style>
 </head>
