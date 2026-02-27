@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:css": "npx @tailwindcss/cli -i ./djangoseed/static/css/src/input.css -o ./djangoseed/static/css/src/output.css --watch",
     "build:css": "npx @tailwindcss/cli -i ./djangoseed/static/css/src/input.css -o ./djangoseed/static/css/src/output.css --minify"
+    ,"heroku-postbuild": "npm ci && npm run build:css"
   },
   "repository": {
     "type": "git",
