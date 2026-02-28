@@ -26,16 +26,16 @@ load_dotenv()
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True') == 'False'
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 # Allow configuring hosts via env (comma separated).
 # Railway sometimes forwards the request with an internal IPv6
 # address as the Host header; those values vary each deployment, so
 # a strict list will cause `Bad Request (400)` errors. default to a
-# wildcard unless the environment explicitly provides a different
+# wildcard unless the environment explicitly provides a differen
 # list. You can still lock it down by setting the ALLOWED_HOSTS
 # variable to a comma-separated string in Railway's dashboard.
-# build the host list cleanly in case the environment variable contains
+# build the host list cleanly in case the envir`nment variable contains
 # stray spaces or is empty. we also log the final value in debug mode so
 # it's easy to verify what Django is actually checking when the app
 # boots (Railway logs will show the value).
@@ -47,7 +47,7 @@ if DEBUG:
     # this print will appear in the build logs when DEBUG=True (local
     # dev) but will be ignored in production; keep it for troubleshooting
     print("ALLOWED_HOSTS=", ALLOWED_HOSTS)
-CSRF_TRUSTED_ORIGINS = ["https://*.railway.app"]
+"""CSRF_TRUSTED_ORIGINS = ["https://*.railway.app"]"""
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
 # Application definition
@@ -153,7 +153,6 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -171,6 +170,6 @@ STORAGES = {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }

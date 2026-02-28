@@ -9,59 +9,32 @@
 				Conheça alguns dos nossos trabalhos mais recentes
 			</p>
 		</div>
-		<div class="space-y-24 md:space-y-32 stagger-fade">
-			{% for project in projects %}
-						 <div class="flex flex-col odd:lg:flex-row even:lg:flex-row-reverse items-center gap-8 md:gap-12">
-						<!-- remove lg:h-[50%] since height is governed by the inner
-							gallery; keep width and aspect ratio only -->
-						<div class="w-full lg:w-[68%] lg:aspect-auto {% if forloop.counter|divisibleby:'2' %}lg:-mr-[10%]{% else %}lg:-ml-[10%]{% endif %}">
-						<div class="relative group">
-										    <!-- rather than a hard‑coded height we now use an
-											    explicit aspect ratio and `object-contain` so
-											    each image is shown in full without being
-											    cropped/"zoomed" on narrow viewports. the
-											    overflow-x is still kept so the user can swipe
-											    through multiple pictures. if you prefer fixed
-											    heights again you can restore the h-80 …
-											    utilities or add custom spacing in
-											    tailwind.config.js. -->
-									    <!-- small screens use a 4:3 aspect ratio so the images
-										    aren't cropped; on large viewports we give the
-										    container a minimum height so it doesn't become a
-										    thin ribbon as the width grows. adjust the lg:h-*
-										    value to taste. -->
-									    <div class="project-gallery w-full overflow-x-auto flex snap-x snap-mandatory rounded-2xl shadow-2xl aspect-4/3 lg:h-96 bg-base-200/80">
-																{% if project.cover_image %}
-																<div class="min-w-full h-full shrink-0 snap-center flex items-center justify-center overflow-hidden">
-																	<img
-																		src="{{ project.cover_image.url|cloudinary_thumb }}"
-																		alt="{{ project.title }}"
-																		class="w-full h-full object-cover"
-																		loading="lazy"
-																	/>
-																</div>
-																{% endif %}
-																{% for img in project.images.all %}
-																	<div class="min-w-full h-full shrink-0 snap-center flex items-center justify-center overflow-hidden">
-																		<img
-																			src="{{ img.image.url|cloudinary_thumb }}"
-																			alt="{{ project.title }}"
-																			class="w-full h-full object-contain"
-																			loading="lazy"
-																		/>
-																	</div>
-																{% endfor %}
-															</div>
-							{% if project.images.all %}
-								<div class="absolute bottom-4 right-4 bg-black/40 backdrop-blur-sm text-white px-3 py-1 rounded-full text-[10px] uppercase opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-									← Deslize para ver fotos →
-2								</div>
-							{% endif %}
+			<div class="space-y-24 md:space-y-32 stagger-fade">
+				{% for project in projects %}
+					<div class="flex flex-col odd:lg:flex-row even:lg:flex-row-reverse items-center gap-8 md:gap-12">
+						<div class="w-[calc(100%+2rem)] -mx-4 lg:w-[68%] lg:aspect-auto {% if forloop.counter|divisibleby:'2' %}lg:-mr-[10%]{% else %}lg:-ml-[10%]{% endif %}">
+							<div class="w-full rounded-xl md:rounded-2xl lg:rounded-lg shadow-2xl aspect-4/3 lg:h-96 bg-base-200/80 overflow-hidden">
+								{% if project.cover_image %}
+									<img
+										src="{{ project.cover_image.url|cloudinary_thumb }}"
+										alt="{{ project.title }}"
+										class="w-full h-full object-cover"
+										loading="lazy"
+									/>
+								{% else %}
+									{% for img in project.images.all %}
+										{% if forloop.first %}
+											<img
+												src="{{ img.image.url|cloudinary_thumb }}"
+												alt="{{ project.title }}"
+												class="w-full h-full object-cover"
+												loading="lazy"
+											/>
+										{% endif %}
+									{% endfor %}
+								{% endif %}
+							</div>
 						</div>
-						{% if project.images.all %}
-							<p class="text-xs text-base-content/60 mt-2 text-center">Deslize para ver mais fotos</p>
-						{% endif %}
-					</div>
 					 <div class="w-full lg:w-[60%] space-y-4 relative z-20 lg:bg-base-100 lg:p-6 lg:rounded-md {% if forloop.counter|divisibleby:'2' %}lg:-ml-[10%]{% else %}lg:-mr-[10%]{% endif %}">
 						<h3 class="text-2xl md:text-3xl font-bold tracking-tight">{{ project.title }}</h3>
 						<p class="text-base-content/70 text-lg leading-relaxed">
@@ -79,11 +52,7 @@
 				<div class="text-center py-16 text-base-content/60">
 					<p class="text-lg">Nenhum projeto em destaque no momento.</p>
 				</div>
-			{% endfor %}
+				{% endfor %}
+			</div>
 		</div>
-	</div>
 </section>
-
-<style>
-	.project-gallery::-webkit-scrollbar { display: none; }
-</style>

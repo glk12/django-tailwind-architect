@@ -18,7 +18,6 @@ env/
 # IDEs
 .vscode/
 .idea/
-.cursor/
 # OS
 .DS_Store
 Thumbs.db
