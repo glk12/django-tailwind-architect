@@ -49,6 +49,34 @@
         min-height: 100%;
         overscroll-behavior-y: none;
       }
+
+      @media (max-width: 1023px) {
+        .service-card .service-frame {
+          transition: border-color 0.7s ease, transform 0.7s ease, box-shadow 0.7s ease;
+        }
+
+        .service-card .service-icon {
+          transition: background-color 0.7s ease, color 0.7s ease, transform 0.7s ease;
+        }
+
+        .service-card .service-title {
+          transition: color 0.7s ease;
+        }
+
+        .service-card.in-view .service-frame {
+          border-color: #DE4A24;
+        }
+
+        .service-card.in-view .service-icon {
+          background-color: #DE4A24;
+          color: #fff;
+          transform: scale(1.06);
+        }
+
+        .service-card.in-view .service-title {
+          color: #DE4A24;
+        }
+      }
     </style>
 </head>
 
