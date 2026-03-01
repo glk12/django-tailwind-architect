@@ -47,20 +47,17 @@
 
       html, body {
         min-height: 100%;
-      }
-
-      body {
-        background: #111827;
+        overscroll-behavior-y: none;
       }
     </style>
 </head>
 
-<body class="overflow-x-hidden">
+<body class="min-h-dvh flex flex-col overflow-x-hidden">
     <div id="nav">
 		{% include "includes/nav.html" %}
 	</div>
 
-    <div id="content">
+    <div id="content" class="flex-1">
         {% block content %}{% endblock %}
     </div>
 	{% include "includes/footer.html" %}
