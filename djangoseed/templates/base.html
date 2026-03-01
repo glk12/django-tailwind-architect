@@ -41,8 +41,16 @@
          area + dynamic address bar). if you prefer using a utility
          class instead, this can be moved into your Tailwind input file. */
       .hero {
-        height: 100svh;
+        min-height: 100vh;
         min-height: 100dvh;
+      }
+
+      html, body {
+        min-height: 100%;
+      }
+
+      body {
+        background: #111827;
       }
     </style>
 </head>
