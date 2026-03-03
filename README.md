@@ -8,10 +8,9 @@ Este repositório é um site profissional para arquitetos desenvolvido em Django
 
 Certifique-se de ter as ferramentas a seguir instaladas em sua máquina:
 
-- **Python** (>= versão 3.8)
+- **Python** (>= 3.12)
 - **Node.js** (>= versão 16.x)
 - Gerenciador de pacotes como `npm` ou `yarn`
-- **Django** (>= versão mencionada no `requirements.txt`)
 
 ---
 
@@ -25,7 +24,7 @@ cd django-tailwind-architect
 
 ### 2️⃣ Crie e ative um ambiente virtual Python
 ```bash
-    python3 -m venv venv
+python3 -m venv venv
 source venv/bin/activate # No Windows: venv\Scripts\activate
 ```
 
@@ -45,16 +44,21 @@ npm install
 
 1. **Migrações do Django**
     ```bash
-    python3 manage.py makemigrations
-    python3 manage.py migrate
+    python djangoseed/manage.py makemigrations
+    python djangoseed/manage.py migrate
     ```
 
 2. **Criação de um superusuário**
     ```bash
-    python3 manage.py createsuperuser
+    python djangoseed/manage.py createsuperuser
     ```
 
-3. **Configure as variáveis ambiente (se necessário)**.
+3. **Build do CSS (Tailwind)**
+    ```bash
+    npm run build:css
+    ```
+
+4. **Configure as variáveis ambiente (`djangoseed/.env` ou env vars do deploy)**.
 
 ---
 
@@ -63,7 +67,7 @@ npm install
 Após a configuração, execute o servidor de desenvolvimento do Django:
 
 ```bash
-    python3 manage.py runserver
+python djangoseed/manage.py runserver
 ```
 
 Abra seu navegador e acesse: `http://localhost:8000`
