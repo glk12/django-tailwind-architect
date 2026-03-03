@@ -1,10 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
+	let lastScrollY = window.scrollY;
+
+	const updateScrollDirection = () => {
+		const currentScrollY = window.scrollY;
+		const delta = currentScrollY - lastScrollY;
+
+		if (Math.abs(delta) < 2) return;
+
+		const isScrollingUp = delta < 0;
+		document.body.classList.toggle('scrolling-up', isScrollingUp);
+		document.body.classList.toggle('scrolling-down', !isScrollingUp);
+		lastScrollY = currentScrollY;
+	};
+
+	document.body.classList.add('scrolling-down');
+	window.addEventListener('scroll', updateScrollDirection, { passive: true });
+
 	const observer = new IntersectionObserver((entries) => {
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
 				entry.target.classList.add('visible');
-				// Run fade animation only once to avoid visual fatigue on scroll back.
-				observer.unobserve(entry.target);
+			} else {
+				entry.target.classList.remove('visible');
 			}
 		});
 	}, {

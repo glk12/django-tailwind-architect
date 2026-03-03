@@ -2104,6 +2104,9 @@
   .hidden {
     display: none;
   }
+  .inline-block {
+    display: inline-block;
+  }
   .inline-flex {
     display: inline-flex;
   }
@@ -2199,8 +2202,20 @@
   .w-20 {
     width: calc(var(--spacing) * 20);
   }
+  .w-24 {
+    width: calc(var(--spacing) * 24);
+  }
+  .w-25 {
+    width: calc(var(--spacing) * 25);
+  }
   .w-26 {
     width: calc(var(--spacing) * 26);
+  }
+  .w-27 {
+    width: calc(var(--spacing) * 27);
+  }
+  .w-30 {
+    width: calc(var(--spacing) * 30);
   }
   .w-50 {
     width: calc(var(--spacing) * 50);
@@ -2211,17 +2226,32 @@
   .w-60 {
     width: calc(var(--spacing) * 60);
   }
+  .w-65 {
+    width: calc(var(--spacing) * 65);
+  }
+  .w-66 {
+    width: calc(var(--spacing) * 66);
+  }
   .w-67 {
     width: calc(var(--spacing) * 67);
   }
   .w-68 {
     width: calc(var(--spacing) * 68);
   }
+  .w-69 {
+    width: calc(var(--spacing) * 69);
+  }
   .w-70 {
     width: calc(var(--spacing) * 70);
   }
+  .w-71 {
+    width: calc(var(--spacing) * 71);
+  }
   .w-72 {
     width: calc(var(--spacing) * 72);
+  }
+  .w-73 {
+    width: calc(var(--spacing) * 73);
   }
   .w-78 {
     width: calc(var(--spacing) * 78);
@@ -2802,6 +2832,9 @@
   }
   .pt-8 {
     padding-top: calc(var(--spacing) * 8);
+  }
+  .pt-10 {
+    padding-top: calc(var(--spacing) * 10);
   }
   .pb-\[env\(safe-area-inset-bottom\)\] {
     padding-bottom: env(safe-area-inset-bottom);
