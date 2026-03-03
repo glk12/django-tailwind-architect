@@ -93,15 +93,6 @@
 	</div>
 
     <div id="content" class="flex-1">
-        {% if messages %}
-          <div class="max-w-6xl mx-auto px-4 mt-4 space-y-2">
-            {% for message in messages %}
-              <div class="alert {% if message.tags == 'success' %}alert-success{% else %}alert-error{% endif %}">
-                <span>{{ message }}</span>
-              </div>
-            {% endfor %}
-          </div>
-        {% endif %}
         {% block content %}{% endblock %}
     </div>
 	{% include "includes/footer.html" %}

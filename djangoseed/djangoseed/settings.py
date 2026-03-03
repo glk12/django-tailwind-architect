@@ -47,7 +47,7 @@ if DEBUG:
     # this print will appear in the build logs when DEBUG=True (local
     # dev) but will be ignored in production; keep it for troubleshooting
     print("ALLOWED_HOSTS=", ALLOWED_HOSTS)
-"""CSRF_TRUSTED_ORIGINS = ["https://*.railway.app"]"""
+CSRF_TRUSTED_ORIGINS = ["https://web-production-e25fd.up.railway.app"]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
 # Application definition
