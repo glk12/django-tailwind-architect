@@ -20,6 +20,7 @@ Certifique-se de ter as ferramentas a seguir instaladas em sua máquina:
 ```bash
 git clone https://github.com/glk12/django-tailwind-architect.git
 cd django-tailwind-architect
+cd djangoseed
 ```
 
 ### 2️⃣ Crie e ative um ambiente virtual Python
@@ -44,13 +45,13 @@ npm install
 
 1. **Migrações do Django**
     ```bash
-    python djangoseed/manage.py makemigrations
-    python djangoseed/manage.py migrate
+    python manage.py makemigrations
+    python manage.py migrate
     ```
 
 2. **Criação de um superusuário**
     ```bash
-    python djangoseed/manage.py createsuperuser
+    python manage.py createsuperuser
     ```
 
 3. **Build do CSS (Tailwind)**
@@ -58,7 +59,7 @@ npm install
     npm run build:css
     ```
 
-4. **Configure as variáveis ambiente (`djangoseed/.env` ou env vars do deploy)**.
+4. **Configure as variáveis ambiente (`.env` local ou env vars do deploy)**.
 
 ---
 
@@ -67,7 +68,7 @@ npm install
 Após a configuração, execute o servidor de desenvolvimento do Django:
 
 ```bash
-python djangoseed/manage.py runserver
+python manage.py runserver
 ```
 
 Abra seu navegador e acesse: `http://localhost:8000`

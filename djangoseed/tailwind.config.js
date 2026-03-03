@@ -2,12 +2,12 @@ module.exports = {
   content: [
     // include all html templates and python files so Tailwind can see the
     // utility classes used by the Django templates when purging in production
-    './djangoseed/templates/**/*.html',
-    './djangoseed/**/templates/**/*.html',
-    './djangoseed/**/views.py',
-    './djangoseed/**/models.py',
-    './djangoseed/**/urls.py',
-    './djangoseed/**/forms.py',
+    './templates/**/*.html',
+    './**/templates/**/*.html',
+    './**/views.py',
+    './**/models.py',
+    './**/urls.py',
+    './**/forms.py',
     // if you have any other locations with Tailwind classes (e.g. JS), add
     // them here as well
   ],

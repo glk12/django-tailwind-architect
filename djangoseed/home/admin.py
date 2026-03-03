@@ -7,6 +7,6 @@ admin.site.register(Logo)
 
 @admin.register(ContactForm)
 class ContactFormAdmin(admin.ModelAdmin):
-	list_display = ("   name", "email", "telephone", "sent_at")
-	search_fields = ("name", "email", "telephone")
-	ordering = ("-sent_at",)
+    list_display = ("name", "email", "telephone", "sent_at")
+    search_fields = ("name", "email", "telephone")
+    ordering = ("-sent_at",)
