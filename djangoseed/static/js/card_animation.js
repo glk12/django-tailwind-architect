@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
 				entry.target.classList.add('visible');
-			} else {
-				entry.target.classList.remove('visible');
+				// Run fade animation only once to avoid visual fatigue on scroll back.
+				observer.unobserve(entry.target);
 			}
 		});
 	}, {
