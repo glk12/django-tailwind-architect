@@ -8,10 +8,10 @@
             </p>
         </div>
 
-        <div class="fade-in-section grid lg:grid-cols-2 gap-10 lg:gap-17 items-stretch">
-            <div class="bg-white rounded-2xl border border-zinc-200/80 shadow-[0_16px_36px_-24px_rgba(0,0,0,0.28)] p-7 lg:p-8 mr-5 h-full">
+        <div class="fade-in-section grid w-full lg:grid-cols-2 gap-10 lg:gap-17 items-stretch">
+            <div class="w-full min-w-0 bg-white rounded-2xl border border-zinc-200/80 shadow-[0_16px_36px_-24px_rgba(0,0,0,0.28)] p-7 lg:p-8 h-full">
                 <h3 class="text-2xl font-semibold tracking-normal mb-2 text-zinc-900">Informações de contato</h3>
-                <div class="w-72 h-0.5 bg-[#DE4A24] rounded-full mb-6"></div>
+                <div class="w-full h-0.5 bg-[#DE4A24] rounded-full mb-6"></div>
                 <ul class="space-y-1.5 text-zinc-900/80">
                     <li class="flex items-start gap-2.5 p-2 rounded-xl ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" class="mt-1 text-[#DE4A24]" fill="currentColor" viewBox="0 0 479.058 479.058">
@@ -38,9 +38,9 @@
                         <p class="text-base leading-relaxed text-zinc-900"><span class="font-semibold tracking-wide">Localização:</span> Rio de Janeiro.</p>
                     </li>
                 </ul>
-                <div class="aspect-video w-full h-60 mt-7 relative overflow-hidden rounded-xl border border-[#DE4A24]/20 shadow-sm">
+                <div class="aspect-video relative mt-7 h-60 w-full max-w-full overflow-hidden rounded-xl border border-[#DE4A24]/20 shadow-sm">
                     <iframe
-                    class="w-full h-full"
+                    class="block w-full max-w-full h-full"
                     src="https://www.google.com/maps?q=Rio%20de%20Janeiro%2C%20RJ%2C%20Brasil&output=embed"
                     width="600"
                     height="450"
@@ -49,16 +49,16 @@
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
-                    <div class="absolute top-1 left-1 z-10 pointer-events-none inline-flex items-center gap-2 rounded-lg border border-[#DE4A24]/20 bg-white px-4 py-2 shadow-md">
+                    <div class="absolute top-2 left-2 right-2 z-10 pointer-events-none flex max-w-[calc(100%-1rem)] items-center justify-center gap-2 rounded-lg border border-[#DE4A24]/20 bg-white px-3 py-2 shadow-md">
                         <span style="display:inline-block;width:10px;height:10px;border-radius:9999px;background:#22c55e;box-shadow:0 0 0 3px #dcfce7;"></span>
-                        <p class="text-sm font-semibold tracking-wide text-base-content/80">Atendemos em todo o RJ.</p>
+                        <p class="text-center text-xs sm:text-sm font-semibold tracking-wide text-base-content/80">Atendemos em todo o RJ.</p>
                     </div>
                 </div>
             </div>
 
-            <form action="#contato" method="POST" class="bg-white rounded-2xl border border-zinc-200/80 shadow-[0_16px_36px_-24px_rgba(0,0,0,0.28)] p-7 lg:p-8 space-y-4 h-full">
+            <form action="#contato" method="POST" class="w-full min-w-0 bg-white rounded-2xl border border-zinc-200/80 shadow-[0_16px_36px_-24px_rgba(0,0,0,0.28)] p-7 lg:p-8 space-y-4 h-full">
                 <h3 class="text-2xl font-bold tracking-tight mb-2">Solicite um orçamento</h3>
-            <div class="w-67 h-0.5 bg-[#DE4A24] rounded-full mb-3"></div>
+            <div class="w-full h-0.5 bg-[#DE4A24] rounded-full mb-3"></div>
                 {% csrf_token %}
                 
                 <label for="name" class="label-text font-semibold">Nome Completo</label>
