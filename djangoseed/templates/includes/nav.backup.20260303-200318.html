@@ -1,0 +1,136 @@
+<div id="main-navbar" class="navbar fixed top-0 z-50 h-16 overflow-visible transition-all duration-500 bg-transparent border-b border-transparent shadow-none">
+  
+  <div class="navbar-start">
+    <a href="{% url 'home' %}#hero" class="flex items-center h-full pl-1 pt-8">
+      <img src="{{logo.image.url}}" alt="{{logo.title}}" class="logo-img h-24 lg:h-36 w-auto drop-shadow-lg transition-all duration-300 lg:mt-14">
+    </a>
+  </div>
+
+  <div class="navbar-center">
+    <ul class="menu menu-horizontal px-1 gap-2 font-medium text-white text-base hidden lg:flex">
+      <li>
+        <a class="relative inline-block group" href="{% url 'home' %}#hero">
+          Início
+          <span class="nav-underline"></span>
+        </a>
+      </li>
+      <li>
+        <a class="relative inline-block group" href="{% url 'home' %}#sobre">
+          Sobre nós
+          <span class="nav-underline"></span>
+        </a>
+      </li>
+      <li>
+        <a class="relative inline-block group" href="{% url 'home' %}#servicos">
+          Serviços
+          <span class="nav-underline"></span>
+        </a>
+      </li>
+      <li>
+        <a class="relative inline-block group" href="{% url 'home' %}#projects">
+          Projetos
+          <span class="nav-underline"></span>
+        </a>
+      </li>
+      <li>
+        <a class="relative inline-block group" href="{% url 'home' %}#contato">
+          Contato
+          <span class="nav-underline"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="navbar-end gap-2">
+    <div class="dropdown dropdown-end lg:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+        </svg>
+      </div>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 right-0 left-auto z-20 p-2 shadow bg-base-100 rounded-box w-52 text-base-content">
+        <li><a href="{% url 'home' %}#hero">Início</a></li>
+        <li><a href="{% url 'home' %}#sobre">Sobre nós</a></li>
+        <li><a href="{% url 'home' %}#servicos">Serviços</a></li>
+        <li><a href="{% url 'home' %}#projects">Projetos</a></li>
+        <li><a href="{% url 'home' %}#contato">Contato</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  let lastScrollY = window.scrollY;
+
+  function updateNavbar() {
+    const navbar = document.getElementById('main-navbar');
+    const isMobile = window.innerWidth < 1024;
+    const currentScroll = window.scrollY;
+
+    // 1. Lógica de Transparência vs Cor Sólida
+    if (currentScroll > 50) {
+      // Quando sai do topo
+      navbar.classList.remove('bg-transparent', 'border-transparent', 'shadow-none');
+      navbar.classList.add('bg-[#171717]', 'border-white/10', 'shadow-lg');
+    } else {
+      // Quando está no topo
+      navbar.classList.add('bg-transparent', 'border-transparent', 'shadow-none');
+      navbar.classList.remove('bg-[#171717]', 'border-white/10', 'shadow-lg');
+    }
+
+    // 2. Lógica de Esconder/Mostrar no Scroll (Mobile)
+    if (isMobile) {
+      if (currentScroll > lastScrollY && currentScroll > 80) {
+        // Scroll para baixo - Esconde
+        navbar.classList.add('translate-y-[-100%]', 'nav-hidden');
+      } else {
+        // Scroll para cima - Mostra
+        navbar.classList.remove('translate-y-[-100%]', 'nav-hidden');
+      }
+    } else {
+      // Garante que no desktop ela sempre apareça
+      navbar.classList.remove('translate-y-[-100%]', 'nav-hidden');
+    }
+
+    lastScrollY = currentScroll;
+  }
+
+  window.addEventListener('scroll', updateNavbar);
+  window.addEventListener('resize', updateNavbar);
+  // Executa no load para checar posição inicial
+  updateNavbar();
+</script>
+
+<style>
+  /* Transições suaves para as propriedades da Navbar */
+  #main-navbar {
+    transition: background-color 0.4s ease, border-color 0.4s ease, transform 0.3s ease, box-shadow 0.4s ease;
+  }
+
+  /* Estilização da linha de hover (ajustada para aparecer no fundo cinza) */
+  .nav-underline {
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 100%;
+    background-color: white; /* Linha branca para contrastar com o cinza */
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .group:hover .nav-underline {
+    transform: scaleX(1);
+  }
+
+  /* Logo transition */
+  .logo-img {
+    transition: opacity .24s ease, transform .24s ease;
+  }
+
+  .nav-hidden .logo-img {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+</style>

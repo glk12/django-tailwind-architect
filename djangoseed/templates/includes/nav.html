@@ -1,17 +1,42 @@
-<div id="main-navbar" class="navbar fixed top-0 z-50 h-16 overflow-visible transition-all duration-300 bg-transparent border-b border-transparent">
+<div id="main-navbar" class="navbar fixed top-0 z-50 h-16 overflow-visible transition-all duration-500 bg-transparent border-b border-transparent shadow-none">
   <div class="navbar-start">
-    <a href="#home" class="flex items-center h-full pl-1 pt-8">
+    <a href="{% url 'home' %}#hero" class="flex items-center h-full pl-1 pt-8">
   <img src="{{logo.image.url}}" alt="{{logo.title}}" class="logo-img h-24 lg:h-36 w-auto drop-shadow-lg transition-all duration-300 lg:mt-14">
     </a>
   </div>
 
   <div class="navbar-center">
     <ul class="menu menu-horizontal px-1 gap-2 font-medium text-white text-base hidden lg:flex">
-      <li><a href="#home" class="hover:bg-transparent hover:text-[#DE4A24] transition-colors duration-300">Início</a></li>
-      <li><a href="#sobre" class="hover:bg-transparent hover:text-[#DE4A24] transition-colors duration-300">Sobre nós</a></li>
-      <li><a href="#servicos" class="hover:bg-transparent hover:text-[#DE4A24] transition-colors duration-300">Serviços</a></li>
-      <li><a href="#projects" class="hover:bg-transparent hover:text-[#DE4A24] transition-colors duration-300">Projetos</a></li>
-      <li><a href="#contato" class="hover:bg-transparent hover:text-[#DE4A24] transition-colors duration-300">Contato</a></li>
+      <li>
+        <a class="relative inline-block group" href="{% url 'home' %}#hero">
+          Início
+          <span class="absolute left-0 -bottom-0.5 h-0.5 w-full origin-left scale-x-0 bg-[#171717] transition-transform duration-300 group-hover:scale-x-100"></span>
+        </a>
+      </li>
+      <li>
+        <a class="relative inline-block group" href="{% url 'home' %}#sobre">
+          Sobre nós
+          <span class="absolute left-0 -bottom-0.5 h-0.5 w-full origin-left scale-x-0 bg-[#171717] transition-transform duration-300 group-hover:scale-x-100"></span>
+        </a>
+      </li>
+      <li>
+        <a class="relative inline-block group" href="{% url 'home' %}#servicos">
+          Serviços
+          <span class="absolute left-0 -bottom-0.5 h-0.5 w-full origin-left scale-x-0 bg-[#171717] transition-transform duration-300 group-hover:scale-x-100"></span>
+        </a>
+      </li>
+      <li>
+        <a class="relative inline-block group" href="{% url 'home' %}#projects">
+          Projetos
+          <span class="absolute left-0 -bottom-0.5 h-0.5 w-full origin-left scale-x-0 bg-[#171717] transition-transform duration-300 group-hover:scale-x-100"></span>
+        </a>
+      </li>
+      <li>
+        <a class="relative inline-block group" href="{% url 'home' %}#contato">
+          Contato
+          <span class="absolute left-0 -bottom-0.5 h-0.5 w-full origin-left scale-x-0 bg-[#171717] transition-transform duration-300 group-hover:scale-x-100"></span>
+        </a>
+      </li>
     </ul>
   </div>
 
@@ -20,41 +45,38 @@
       <div tabindex="0" role="button" class="btn btn-ghost text-white ">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </div>
-      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 right-0 left-auto z-20 p-2 shadow-lg bg-zinc-900 border border-white/10 rounded-box w-52 text-white">
-        <li><a href="#home" class="hover:bg-[#DE4A24] hover:text-white transition-colors duration-200">Início</a></li>
-        <li><a href="#sobre" class="hover:bg-[#DE4A24] hover:text-white transition-colors duration-200">Sobre nós</a></li>
-        <li><a href="#servicos" class="hover:bg-[#DE4A24] hover:text-white transition-colors duration-200">Serviços</a></li>
-        <li><a href="#projects" class="hover:bg-[#DE4A24] hover:text-white transition-colors duration-200">Projetos</a></li>
-        <li><a href="#contato" class="hover:bg-[#DE4A24] hover:text-white transition-colors duration-200">Contato</a></li>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 right-0 left-auto z-20 p-2 shadow bg-base-100 rounded-box w-52 text-base-content">
+        <li><a href="{% url 'home' %}#hero">Início</a></li>
+        <li><a href="{% url 'home' %}#sobre">Sobre nós</a></li>
+        <li><a href="{% url 'home' %}#servicos">Serviços</a></li>
+        <li><a href="{% url 'home' %}#projects">Projetos</a></li>
+        <li><a href="{% url 'home' %}#contato">Contato</a></li>
       </ul>
     </div>
   </div>
 </div>
 
 <script>
-  // Navbar background on scroll
-  window.addEventListener('scroll', function() {
-    const navbar = document.getElementById('main-navbar');
-    if (window.scrollY > 20) {
-      navbar.classList.remove('bg-transparent', 'border-transparent');
-      navbar.classList.add('bg-zinc-900', 'border-white/10');
-    } else {
-      navbar.classList.add('bg-transparent', 'border-transparent');
-      navbar.classList.remove('bg-zinc-900', 'border-white/10');
-    }
-  });
-
   // Esconde navbar no mobile ao descer e mostra ao subir
   let lastScrollY = window.scrollY;
-  window.addEventListener('scroll', function() {
+  function updateNavbarState() {
     const navbar = document.getElementById('main-navbar');
+    const currentScroll = window.scrollY;
+
+    if (currentScroll > 50) {
+      navbar.classList.add('navbar-scrolled');
+    } else {
+      navbar.classList.remove('navbar-scrolled');
+    }
+
     const isMobile = window.innerWidth < 1024;
     if (!isMobile) {
       navbar.classList.remove('translate-y-[-100%]','nav-hidden');
       navbar.classList.add('translate-y-0');
+      lastScrollY = currentScroll;
       return;
     }
-    if (window.scrollY > lastScrollY && window.scrollY > 40) {
+    if (currentScroll > lastScrollY && currentScroll > 40) {
       // descendo
       navbar.classList.add('translate-y-[-100%]');
       navbar.classList.add('nav-hidden');
@@ -65,11 +87,21 @@
       navbar.classList.remove('nav-hidden');
       navbar.classList.add('translate-y-0');
     }
-    lastScrollY = window.scrollY;
-  });
+    lastScrollY = currentScroll;
+  }
+
+  window.addEventListener('scroll', updateNavbarState);
+  window.addEventListener('resize', updateNavbarState);
+  updateNavbarState();
 </script>
 
 <style>
+  .navbar-scrolled {
+    background-color: #171717 !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
+  }
+
   /* Smoothly fade/move logo when navbar is hidden on mobile */
   .logo-img{
     transition: opacity .24s ease, transform .24s ease;
